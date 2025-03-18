@@ -1,38 +1,136 @@
-.App {
+/* Reset styles and ensure full height */
+#root, html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Main container */
+.app {
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./images/city1.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Card container with blur effect */
+.card {
+  background: rgba(255, 255, 255, 0.1); /* Transparent white */
+  width: 40%;
+  min-height: 25vh;
   display: flex;
+  align-items: center;
   flex-direction: column;
+  border-radius: 25px;
+  padding: 3%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Heading inside the card */
+.heading {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 20vh;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
   color: white;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-.App-link {
-  color: #61dafb;
+/* Button styling */
+.button {
+  position: relative;
+  outline: none;
+  text-decoration: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #164ca7;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(22, 76, 167, 0.6);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Hover effect */
+.button:hover {
+  background-color: #164ca7;
+  color: #ffffff;
+  border-color: #164ca7;
+  transform: scale(1.05);
+}
+
+/* Animation for hover effect */
+.button:hover span {
+  animation: storm 0.5s ease-in-out both;
+}
+
+/* Keyframe for subtle shake effect */
+@keyframes storm {
+  0% { transform: translate3d(0, 0, 0) translateZ(0); }
+  25% { transform: translate3d(3px, 0, 0) translateZ(0); }
+  50% { transform: translate3d(-2px, 0, 0) translateZ(0); }
+  75% { transform: translate3d(1px, 0, 0) translateZ(0); }
+  100% { transform: translate3d(0, 0, 0) translateZ(0); }
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 80%;
+    min-height: 30vh;
   }
-  to {
-    transform: rotate(360deg);
+
+  .heading {
+    font-size: 1.5rem;
   }
+
+  .button {
+    padding: 12px 24px;
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .card {
+    width: 90%;
+    min-height: 35vh;
+    padding: 5%;
+  }
+
+  .heading {
+    font-size: 1.3rem;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}
+
+.footer {
+  color: aliceblue;
 }
